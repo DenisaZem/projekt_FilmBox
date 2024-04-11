@@ -121,7 +121,7 @@ const AllMovies = filmy.map((OneMovie)=>{
 	  <div class="card-body">
 		<h5 class="card-title">${OneMovie.nazev}</h5>
 		<p class="card-text">${OneMovie.popis}</p>
-		<a href="film.html" class="btn btn-primary">Přehrát</a>
+		<a href="film.html#${OneMovie.id}" class="btn btn-primary">Přehrát</a>
 	  </div>
 	</div>
   </div>`

@@ -104,3 +104,131 @@ const filmy = [
 		premiera: '2022-12-24',
 	},
 ]
+
+const movieID = window.location.hash.slice(1)
+const searchingTheID = filmy.find((item) => {
+    return item.id === movieID;
+});
+
+if (searchingTheID) {
+	const DetailMovie = document.querySelector("#detail-filmu")
+DetailMovie.innerHTML = 
+`<div class="row g-0">
+<div class="col-md-5">
+	<img
+		src="https://via.placeholder.com/663x909?text=Plak%C3%A1t"
+		alt="plakát"
+		class="img-fluid rounded-start"
+		width="663"
+		height="909"
+	/>
+</div>
+<div class="col-md-7">
+	<div class="card-body">
+		<h5 class="card-title">${searchingTheID.nazev}</h5>
+		<p class="card-text">Tady ${searchingTheID.popis}</p>
+		<p class="card-text">
+			<small class="text-muted" id="premiera"
+				>Premiéra <strong>${searchingTheID.premiera}</strong>, což je za 24
+				dní.</small
+			>
+		</p>
+		<h6>Hodnocení</h6>
+		<div class="stars">
+			<button
+				class="far fa-star button-star"
+				data-mdb-toggle="tooltip"
+				title="Nic moc"
+			>
+				1
+			</button>
+			<button
+				class="far fa-star button-star"
+				data-mdb-toggle="tooltip"
+				title="Ucházející"
+			>
+				2
+			</button>
+			<button
+				class="far fa-star button-star"
+				data-mdb-toggle="tooltip"
+				title="Dobrý"
+			>
+				3
+			</button>
+			<button
+				class="far fa-star button-star"
+				data-mdb-toggle="tooltip"
+				title="Skvělý"
+			>
+				4
+			</button>
+			<button
+				class="far fa-star button-star"
+				data-mdb-toggle="tooltip"
+				title="Úžasný"
+			>
+				5
+			</button>
+		</div>
+
+		<h6 class="mt-4">Poznámka</h6>
+		<form id="note-form">
+			<div class="row">
+				<div class="col-md-6 col-lg-7 col-xl-8 mb-2">
+					<div class="form-outline">
+						<textarea
+							class="form-control"
+							id="message-input"
+							rows="4"
+						></textarea>
+						<label class="form-label" for="message-input"
+							>Text poznámky</label
+						>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-5 col-xl-4">
+					<div class="form-check d-flex justify-content-center mb-2">
+						<input
+							class="form-check-input me-2 mb-2"
+							type="checkbox"
+							value=""
+							id="terms-checkbox"
+						/>
+						<label class="form-check-label" for="terms-checkbox">
+							Souhlasím se všeobecnými podmínky užívání.
+						</label>
+					</div>
+					<button type="submit" class="btn btn-primary btn-block">
+						Uložit
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</div>`
+
+}
+
+
+
+// const weatherId = window.location.hash.slice(1);
+// const weatherData = predpoved.find((počasí) => počasí.den === weatherId);
+// const mainElement = document.querySelector('main');
+
+// if (weatherData) {
+//     const article = document.createElement('article');
+//     article.innerHTML = `
+//         <h2>${weatherData.den}</h2>
+//         <p>${weatherData.datum}</p>
+//         <p>${weatherData.denni_teplota}</p>
+//         <p>${weatherData.ranni_teplota}</p>
+//         <p>${weatherData.odpoledni_teplota}</p>
+//         <p>${weatherData.vecerni_teplota}</p>
+//         <p>${weatherData.popis_pocasi}</p>
+//     `;
+//     mainElement.appendChild(article);
+// } else {
+//     console.error('Data o počasí nebyla nalezena pro zadaný den.');
+// }
